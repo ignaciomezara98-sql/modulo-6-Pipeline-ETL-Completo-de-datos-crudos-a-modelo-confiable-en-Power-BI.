@@ -1,1 +1,11 @@
-# modulo-6-Pipeline-ETL-Completo-de-datos-crudos-a-modelo-confiable-en-Power-BI.
+Tabla clientes:
+Decidí qué hacer con los dos registros que tienen nulos en email y ciudad. Justificá tu decisión en el documento de entrega: ¿los eliminás o los reemplazás con un valor por defecto? ¿Por qué?
+Los reemplace con un valor por defecto porque no van a sesgar tanto el analisis que se puede hacer al cliente. Solamente faltaba el email de uno de los clientes, pero todos los datos estaban bien completos lo que no perjudica al analisis que se puede hacer de los clientes. De igual manera para el otro cliente que no completo la ciudad, al ser solo uno no hay un sesgo tan grande en futuros análisis y no perjudica a la base de datos.
+Reemplacé ambos casos por “No registro”, para que eso se muestre luego en el PowerBI.
+
+Tabla productos:
+El producto con precio nulo es un problema crítico ya que sin precio no se puede calcular el ingreso. Decidí si lo eliminás o lo reemplazás con un valor lógico y justificalo.
+Lo reemplace por el precio del producto que tiene la ID de la venta. Si vamos a la tabla Id_Venta tengo como dato el Id_Producto dentro de la tabla de Ventas y puedo ver el precio unitario del producto. En este caso para el Id_Producto 109, que se trata de un Disco, el precio unitario que figura en la tablas de Ventas es de $130, por ende cambie ese dato en la tabla de Productos. 
+El producto con categoria nula puede asignarse a una categoría existente o marcarse como "Sin Categoría". Justificá tu elección.
+En este caso, al tener a mano y ser bastante simple el cambio del valor null por la categoría lo cambié por la categoría a la que pertenecía el producto. En este caso, si analizamos la tabla categorías podremos observar que cada producto corresponde a una categoría y como son pocas categorías es fácil ubicar al producto por su categoría correspondiente. En el caso de la tabla categoría, el producto que no tenía categoría era la Laptop Gaming Pro cuya categoría es Computación si nos fijamos en la tabla Categorías. Entonces solamente cambié el valor “null” por el de “Computación”.
+Me imagino que poner “Sin Categoría” serviría para los casos en que son muchísimas las categorias de productos y son varias las filas que presentan “null” dentro de la columna analizada, pero como este no es el caso solamente cambié el “null” por la categoría a la que pertenecía el producto.
